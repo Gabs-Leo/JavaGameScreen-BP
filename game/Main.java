@@ -5,6 +5,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.image.BufferStrategy;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -14,7 +16,7 @@ import javax.swing.JFrame;
  *
  * @author gabs
  */
-public class Main extends Canvas implements Runnable{
+public class Main extends Canvas implements Runnable, KeyListener{
     //Screen Size
     public static int WIDTH = 1600, HEIGHT = 900;
     
@@ -27,6 +29,7 @@ public class Main extends Canvas implements Runnable{
     public static int FPSLIMIT = 60;
     
     public Main(){
+        this.addKeyListener(this);
         this.setPreferredSize(new Dimension(WIDTH*SCALE, HEIGHT*SCALE));
     }
     
@@ -74,6 +77,22 @@ public class Main extends Canvas implements Runnable{
         //Show on Screen
         bs.show();
     }
+
+    //KeyListener Methods
+    @Override
+    public void keyTyped(KeyEvent e) {
+        //TODO block for key type
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        //TODO block for key pressed
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        //TODO block for key release
+    }
     
     //Game Thread
     @Override
@@ -93,4 +112,5 @@ public class Main extends Canvas implements Runnable{
         }
     }
     
+
 }
